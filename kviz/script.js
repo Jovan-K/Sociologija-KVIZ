@@ -92,6 +92,7 @@ function dalje(){
 
     if(tacniOdgovori() == pitanja.length){
         console.log("POBEDA!");
+        document.getElementById("pobeda").classList.add("pobedjeno");
         return 0;
     }
 
