@@ -5,42 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <title>Kviz</title>
 </head>
-<body onload="kreni()">
-    <header class="nivoi" id="nivoi">
-
-    </header>
-
-    <div class="glavno">
-        <div class="pitanje">
-            <p id="pitanje"></p>
-        </div>
-
-        <div class="odgovori">
-            <button class="ponuda" id="dugme1">
-                <p id="odgovor1"></p>
-            </button>
-            <button class="ponuda" id="dugme2">
-                <p id="odgovor2"></p>
-            </button>
-            <button class="ponuda" id="dugme3">
-                <p id="odgovor3"></p>
-            </button>
-            <button class="ponuda" id="dugme4">
-                <p id="odgovor4"></p>
-            </button>
-        </div>
-
-    </div>
-
-    <div class="pohvala" id="pohvala">
-        <div class="cestitka">
-            <p>Bravo! Otkljucali ste naredni nivo!</p>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+<body>
+    <button class = "dugme" onclick="kreni()"> Kreni </button>
 </body>
+<script>
+    function kreni(){
+        window.location.href ='./kviz/app.html';
+    }
+</script>
 </html>
