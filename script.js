@@ -26,7 +26,7 @@ function prviNetacan(){
 let nivoi = document.getElementById("nivoi")
 
 function nivo(){
-    return '<div class="nivo zakljucano" id="nivo' + brNivoa +'"></div>'
+    return '<div class="nivo zakljucano" id="nivo' + brNivoa +'">'+ oblasti[brNivoa] +'</div>'
 }
 
 function podnivo(i){
@@ -96,6 +96,16 @@ let odgovori = [ // Ponudjeni odgovori A - D, Tacan dogovor
     ["Pitanje3a", "Pitanje3b", "Pitanje3c", "Pitanje3d", 2],
 ]
 
+let oblasti = [
+    "Oblast1",
+    "Oblast2",
+    "Oblast3",
+    "Oblast4",
+    "Oblast5",
+
+]
+
+
 function dodajEventListenere(){
     for (let i = 0; i < pitanja.length; i++) {
         document.getElementById("pitanje" + i).addEventListener("click", ()=>{prikaziPitanje(i)});
@@ -104,11 +114,12 @@ function dodajEventListenere(){
 
 function dalje(){
     let temp = odgovori[trenutnoPitanje][4] + 1;
-    document.getElementById("dugme"+temp).classList.remove("tacno");
+    document.getElementById("dugme"+temp).classList.remove("tacnoDugme");
     if(tacniOdgovori() == ((otkljucano + 1) * 5)){
         prikaziPitanje((otkljucano + 1) * 5);
-        document.getElementById("nivo"+ otkljucano).classList.add("tacno");
         otkljucano++;
+        document.getElementById("pohvala").classList.add("pohvali");
+        setTimeout(()=>{ document.getElementById("pohvala").classList.remove("pohvali");}, 4000)
         otkrij();
     }
     else if(trenutnoPitanje < ((otkljucano + 1) * 5 - 1)){
@@ -125,11 +136,12 @@ function dalje(){
     }
 }
 
+
 function netacnoDalje(){
-    document.getElementById("dugme1").classList.remove("netacno");
-    document.getElementById("dugme2").classList.remove("netacno");
-    document.getElementById("dugme3").classList.remove("netacno");
-    document.getElementById("dugme4").classList.remove("netacno");
+    document.getElementById("dugme1").classList.remove("netacnoDugme");
+    document.getElementById("dugme2").classList.remove("netacnoDugme");
+    document.getElementById("dugme3").classList.remove("netacnoDugme");
+    document.getElementById("dugme4").classList.remove("netacnoDugme");
 
 
     if(trenutnoPitanje < ((otkljucano + 1) * 5 - 1)){
@@ -150,12 +162,15 @@ function prikaziTacno(){
     let temp = odgovori[trenutnoPitanje][4] + 1;
     document.getElementById("pitanje"+trenutnoPitanje).classList.remove("netacno");
     document.getElementById("pitanje"+trenutnoPitanje).classList.add("tacno");
-    document.getElementById("dugme"+temp).classList.add("tacno");
+    document.getElementById("dugme"+temp).classList.add("tacnoDugme");
 }
 
 function tacno(){
     reseno[trenutnoPitanje] = 1;
     prikaziTacno();
+    if(tacniOdgovori() == ((otkljucano + 1) * 5)){
+        document.getElementById("nivo"+ otkljucano).classList.add("tacno");
+    }
     setTimeout(dalje, 1000);
 
 }
@@ -173,7 +188,7 @@ function proveri(odg){
     }
     else{
         let temp = odg + 1
-        document.getElementById("dugme"+temp).classList.add("netacno");
+        document.getElementById("dugme"+temp).classList.add("netacnoDugme");
         netacno();
     }
 }
