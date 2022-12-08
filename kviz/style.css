@@ -9,7 +9,10 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: linear-gradient(45deg, rgba(128, 0, 128, 0.5), rgba(0, 255, 255, 0.5));
+
+    background-image: url(./../slike/pocetna.jpg);
+    background-size: cover;
+    background-position: center;
 
     -webkit-animation: fadeIn 2s;
     animation: fadeIn 2s;
@@ -25,6 +28,8 @@ body{
     width: 98%;
     gap: 1%;
     overflow-x: hidden;
+
+    background-color: rgba(0, 0, 0, 0.3);
 
     border-radius: 2rem;
     -webkit-border-radius: 2rem;
@@ -48,6 +53,7 @@ body{
     align-items: center;
     font-size: 2rem;
     
+    text-align: center;
 
     border-radius: 2rem;
     -webkit-border-radius: 2rem;
@@ -59,6 +65,7 @@ body{
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
 }
+
 
 .pitanja{
     aspect-ratio: 1 / 1;
@@ -94,6 +101,9 @@ body{
     gap: 5%;
     -webkit-animation: fadeIn 2s;
     animation: fadeIn 2s;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 2rem;
 }
 
 .pitanje{
@@ -106,7 +116,7 @@ body{
     justify-content: center;
     align-items: center;
 
-
+    padding: 2rem;
     border-radius: 2rem;
     -webkit-border-radius: 2rem;
     -moz-border-radius: 2rem;
@@ -159,6 +169,7 @@ body{
 .pitanje p{
     font-size: 2rem;
     margin: 0;
+    text-align: center;
 }
 
 .tacno{
@@ -185,6 +196,7 @@ body{
 
 .zakljucano{
     background-color: rgb(48, 48, 48);
+    color: white;
 }
 
 .trenutno{
@@ -222,9 +234,14 @@ body{
 
     border-radius: 4rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
+}
+
+.cestitka p {
+    margin: 0;
 }
 
 .pohvali{
