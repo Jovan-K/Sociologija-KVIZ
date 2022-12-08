@@ -164,3 +164,9 @@ body{
 .zakljucano{
     background-color: rgb(48, 48, 48);
 }
+
+.trenutno{
+    -webkit-box-shadow: 0px 0px 25px 0px rgba(255,255,255,1);
+    -moz-box-shadow: 0px 0px 25px 0px rgba(255,255,255,1);
+    box-shadow: 0px 0px 25px 0px rgba(255,255,255,1);
+}

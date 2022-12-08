@@ -193,6 +193,10 @@ function prikaziOdgovore(i){
 }
 
 function prikaziPitanje(i){
+    for (let i = 0; i < pitanja.length; i++) {
+        document.getElementById("pitanje"+i).classList.remove("trenutno");
+    }
+    document.getElementById("pitanje"+i).classList.add("trenutno");
     document.getElementById("pitanje").innerHTML = pitanja[i];
     prikaziOdgovore(i);
     trenutnoPitanje = i;
