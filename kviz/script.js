@@ -51,19 +51,7 @@ let pitanja = [
     "Pitanje13",
     "Pitanje14",
     "Pitanje15",
-    "Pitanje1",
-    "Pitanje2",
-    "Pitanje3",
-    "Pitanje4",
-    "Pitanje5",
-    "Pitanje6",
-    "Pitanje7",
-    "Pitanje8",
-    "Pitanje9",
-    "Pitanje10",
-    "Pitanje11",
-    "Pitanje12",
-    
+
 ]
 
 let odgovori = [ // Ponudjeni odgovori A - D, Tacan dogovor
@@ -82,27 +70,13 @@ let odgovori = [ // Ponudjeni odgovori A - D, Tacan dogovor
     ["Pitanje13a", "Pitanje13b", "Pitanje13c", "Pitanje13d", 0],
     ["Pitanje14a", "Pitanje14b", "Pitanje14c", "Pitanje14d", 1],
     ["Pitanje15a", "Pitanje15b", "Pitanje15c", "Pitanje15d", 2],
-    ["Pitanje4a", "Pitanje4b", "Pitanje4c", "Pitanje4d", 3],
-    ["Pitanje1a", "Pitanje1b", "Pitanje1c", "Pitanje1d", 0],
-    ["Pitanje2a", "Pitanje2b", "Pitanje2c", "Pitanje2d", 1],
-    ["Pitanje3a", "Pitanje3b", "Pitanje3c", "Pitanje3d", 2],
-    ["Pitanje4a", "Pitanje4b", "Pitanje4c", "Pitanje4d", 3],
-    ["Pitanje1a", "Pitanje1b", "Pitanje1c", "Pitanje1d", 0],
-    ["Pitanje2a", "Pitanje2b", "Pitanje2c", "Pitanje2d", 1],
-    ["Pitanje3a", "Pitanje3b", "Pitanje3c", "Pitanje3d", 2],
-    ["Pitanje4a", "Pitanje4b", "Pitanje4c", "Pitanje4d", 3],
-    ["Pitanje1a", "Pitanje1b", "Pitanje1c", "Pitanje1d", 0],
-    ["Pitanje2a", "Pitanje2b", "Pitanje2c", "Pitanje2d", 1],
-    ["Pitanje3a", "Pitanje3b", "Pitanje3c", "Pitanje3d", 2],
+
 ]
 
 let oblasti = [
     "Oblast1",
     "Oblast2",
     "Oblast3",
-    "Oblast4",
-    "Oblast5",
-
 ]
 
 
@@ -115,6 +89,12 @@ function dodajEventListenere(){
 function dalje(){
     let temp = odgovori[trenutnoPitanje][4] + 1;
     document.getElementById("dugme"+temp).classList.remove("tacnoDugme");
+
+    if(tacniOdgovori() == pitanja.length){
+        console.log("POBEDA!");
+        return 0;
+    }
+
     if(tacniOdgovori() == ((otkljucano + 1) * 5)){
         prikaziPitanje((otkljucano + 1) * 5);
         otkljucano++;
@@ -278,5 +258,4 @@ slider.addEventListener('mousemove', (e) => {
   const x = e.pageX - slider.offsetLeft;
   const walk = (x - startX) * 3; //scroll-fast
   slider.scrollLeft = scrollLeft - walk;
-  console.log(walk);
 });
